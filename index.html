@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja" style="background-color: #1a1a4e;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michi LLC</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            jp: ['Noto Sans JP', 'sans-serif'],
+          },
+          colors: {
+            'bg-main': '#1a1a4e',
+            'bg-sub': '#000068',
+            'bg-light': '#d9d9d9',
+            'text-dark': '#ede8df',
+            'text-light': '#1a1a1a',
+            'text-aux': '#6b6560',
+            'accent': '#c9a84c',
+            'accent-aux': '#c9973a',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #1a1a4e;
+      color: #ede8df;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .font-jp {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-feature-settings: "palt";
+      letter-spacing: 0.06em;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent py-6">
+    <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+      <a href="#" class="text-[0.85rem] tracking-[0.15em] font-bold uppercase">Michi LLC</a>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-text-dark">
+        <a href="#works" class="hover:text-accent transition-colors">Works</a>
+        <a href="#about" class="hover:text-accent transition-colors">About</a>
+        <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-text-dark" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-bg-main/95 backdrop-blur-md py-4 px-6 flex-col space-y-4 border-t border-white/10">
+      <a href="#works" class="mobile-link">Works</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative h-screen flex items-center overflow-hidden">
+    <svg id="hero-particles" class="absolute inset-0 w-full h-full pointer-events-none z-0"></svg>
+    <div class="container mx-auto px-6 md:px-12 relative z-10">
+      <div class="fade-in" style="transition-delay: 0.2s;">
+        <span class="font-jp text-sm md:text-base text-text-aux tracking-widest mb-4 block">
+          企業経営者・個人事業主の右腕パートナー・悩み事解決
+        </span>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.4s;">
+        <h1 class="text-[clamp(4rem,12vw,10rem)] font-extrabold leading-none tracking-tighter mb-6">
+          <span class="text-accent">Michi</span> LLC
+        </h1>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.6s;">
+        <p class="font-jp text-2xl md:text-4xl font-light mb-12">
+          仕事＝感動⇄感謝の循環
+        </p>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.8s;">
+        <a href="#works" class="inline-flex items-center justify-center px-8 py-4 border border-text-dark/30 hover:border-accent hover:bg-accent/10 transition-all duration-300 rounded-full text-sm tracking-widest uppercase group">
+          Works 
+          <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section id="works" class="py-32 bg-bg-main relative overflow-hidden">
+    <div class="container mx-auto px-6 md:px-12 mb-12">
+      <div class="fade-in">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Works</h2>
+      </div>
+    </div>
+    <div id="works-slider" class="flex overflow-x-auto no-scrollbar cursor-grab px-6 md:px-12 pb-16 items-center">
+      
+      <!-- Project 1 -->
+      <div class="fade-in shrink-0 group" style="transition-delay: 0s;">
+        <div class="relative overflow-hidden rounded-sm transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(201,168,76,0.15)]">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&h=340&q=80" alt="Support" class="w-[80vw] md:w-[705px] h-[34vw] md:h-[300px] object-cover pointer-events-none" referrerpolicy="no-referrer" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </div>
+        <div class="mt-6 flex flex-col">
+          <h3 class="text-xl font-bold tracking-wide">Support</h3>
+          <span class="text-text-aux text-sm mt-1">法人・個人支援</span>
+        </div>
+      </div>
+      
+      <!-- Perforation 1 -->
+      <div class="perforation-container flex flex-col justify-between h-[25vw] md:h-[300px] py-4 opacity-20 shrink-0 px-2 md:px-6"></div>
+
+      <!-- Project 2 -->
+      <div class="fade-in shrink-0 group" style="transition-delay: 0.2s;">
+        <div class="relative overflow-hidden rounded-sm transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(201,168,76,0.15)]">
+          <img src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&h=340&q=80" alt="Product" class="w-[80vw] md:w-[705px] h-[34vw] md:h-[300px] object-cover pointer-events-none" referrerpolicy="no-referrer" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </div>
+        <div class="mt-6 flex flex-col">
+          <h3 class="text-xl font-bold tracking-wide">Product</h3>
+          <span class="text-text-aux text-sm mt-1">商品開発</span>
+        </div>
+      </div>
+
+      <!-- Perforation 2 -->
+      <div class="perforation-container flex flex-col justify-between h-[25vw] md:h-[300px] py-4 opacity-20 shrink-0 px-2 md:px-6"></div>
+
+      <!-- Project 3 -->
+      <div class="fade-in shrink-0 group" style="transition-delay: 0.4s;">
+        <div class="relative overflow-hidden rounded-sm transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(201,168,76,0.15)]">
+          <img src="https://images.unsplash.com/photo-1530908295418-a12e326966ba?auto=format&fit=crop&w=800&h=340&q=80" alt="Weather Date" class="w-[80vw] md:w-[705px] h-[34vw] md:h-[300px] object-cover pointer-events-none" referrerpolicy="no-referrer" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        </div>
+        <div class="mt-6 flex flex-col">
+          <h3 class="text-xl font-bold tracking-wide">Weather Date</h3>
+          <span class="text-text-aux text-sm mt-1">氣象テクノロジー</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-32 bg-bg-light text-text-light relative overflow-hidden">
+    <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/3 relative flex justify-center md:justify-start">
+        <span class="text-[8rem] md:text-[12rem] leading-none font-bold opacity-5 select-none absolute md:relative top-0 md:top-auto -translate-y-1/4 md:translate-y-0 whitespace-nowrap" style="writing-mode: vertical-rl;">未知</span>
+      </div>
+      <div class="md:w-2/3 z-10 mt-24 md:mt-0">
+        <div class="fade-in">
+          <span class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">About</span>
+          <h2 class="text-3xl md:text-5xl font-bold mb-8 font-jp">さまざまな可能性から未知の世界を実装</h2>
+          <p class="text-lg md:text-xl font-jp mb-12 leading-relaxed max-w-2xl text-text-light/80">
+            人の活動＝仕事は感動と感謝によって成り立つ、それがバーチャルであれ、現実であれ、認識すること。そして大自然への感謝も忘れずに
+          </p>
+          <div class="space-y-6 font-jp text-sm md:text-base">
+            <div class="flex flex-col sm:flex-row sm:items-baseline border-b border-text-light/10 pb-4">
+              <span class="w-32 font-bold mb-2 sm:mb-0">2023</span>
+              <span class="text-text-light/80">START</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline border-b border-text-light/10 pb-4">
+              <span class="w-32 font-bold mb-2 sm:mb-0">2025</span>
+              <span class="text-text-light/80">現在の合同会社未知へ社名変更</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline border-b border-text-light/10 pb-4">
+              <span class="w-32 font-bold mb-2 sm:mb-0">2026</span>
+              <span class="text-text-light/80">■ 支援部門　■ プロダクト部門　■ 氣象部門　立ち上げ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-32 bg-bg-sub">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <!-- Skill 1 -->
+        <div class="fade-in group flex flex-col items-start" style="transition-delay: 0s;">
+          <div class="mb-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-12 h-12 text-accent group-hover:drop-shadow-[0_0_8px_rgba(201,168,76,0.6)] transition-all duration-300">
+              <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
+              <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
+              <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
+              <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+            </svg>
+          </div>
+          <h3 class="font-jp text-lg font-bold mb-1">支援部門</h3>
+          <span class="text-text-aux text-sm mb-4 font-medium">Support Division</span>
+          <div class="text-sm text-text-dark/80 font-jp mt-auto space-y-2">
+            <p>– バックオフィスの実務支援・業務効率化</p>
+            <p>– IT/AI導入支援・活用推進</p>
+            <p>– 法人・個人向け SNS活用サポート・広報</p>
+            <p>– セミナー/イベント 立上げ・運営サポート</p>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="fade-in group flex flex-col items-start" style="transition-delay: 0.1s;">
+          <div class="mb-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-12 h-12 text-accent group-hover:drop-shadow-[0_0_8px_rgba(201,168,76,0.6)] transition-all duration-300">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+          </div>
+          <h3 class="font-jp text-lg font-bold mb-1">プロダクト部門</h3>
+          <span class="text-text-aux text-sm mb-4 font-medium">Product Division</span>
+          <div class="text-sm text-text-dark/80 font-jp mt-auto space-y-2">
+            <p>– 美容/健康 製品開発・生産・品質管理サポート</p>
+            <p>– 自然派化粧品・健康食品の商品開発事業</p>
+            <p>– 各業界向け光触媒素材活用コンサル</p>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="fade-in group flex flex-col items-start" style="transition-delay: 0.2s;">
+          <div class="mb-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-12 h-12 text-accent group-hover:drop-shadow-[0_0_8px_rgba(201,168,76,0.6)] transition-all duration-300">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="M5 5l1.5 1.5" />
+              <path d="M17.5 17.5L19 19" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="M5 19l1.5-1.5" />
+              <path d="M17.5 6.5L19 5" />
+            </svg>
+          </div>
+          <h3 class="font-jp text-lg font-bold mb-1">氣象部門</h3>
+          <span class="text-text-aux text-sm mb-4 font-medium">Meteorological Division</span>
+          <div class="text-sm text-text-dark/80 font-jp mt-auto space-y-2">
+            <p>– 農業・観光・小売等各業界向け情報提供</p>
+            <p>– 氣象リスクを加味したコンサル</p>
+            <p>– 氣象データを活用したスマート農業推進</p>
+            <p class="text-accent text-xs mt-4">※氣象データ活用（2027年度~始動）</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-32 bg-[#0c0c0c] text-center relative">
+    <div class="fade-in">
+      <h2 class="text-[clamp(3rem,8vw,7rem)] font-extrabold leading-none mb-6 tracking-tighter whitespace-nowrap">
+        Unknown World
+      </h2>
+      <p class="text-text-aux font-jp mb-16 text-lg">未知の世界へようこそ</p>
+      
+      <a href="mailto:info@michi_llc.com" class="inline-block text-accent text-xl md:text-3xl font-medium relative group pb-2 mb-20">
+        info@michi_llc.com
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+      </a>
+
+      <div class="flex justify-center space-x-8">
+        <a href="#" class="text-text-aux hover:text-accent transition-colors duration-300" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <path d="M4 4l16 16m0-16L4 20" />
+          </svg>
+        </a>
+        <a href="#" class="text-text-aux hover:text-accent transition-colors duration-300" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="#" class="text-text-aux hover:text-accent transition-colors duration-300" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+          </svg>
+        </a>
+        <a href="#" class="text-text-aux hover:text-accent transition-colors duration-300" aria-label="Vimeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <path d="M22.86 6.1c-.24 2.8-2.12 6.55-5.64 11.23-3.66 4.88-6.84 7.33-9.53 7.33-1.6 0-3-2.16-4.2-6.48L1.6 8.5C1 6.1.5 4.85.5 4.85c-.32-1.4 1-2.2 2.6-1.5 1.6.7 3.3 1.8 5 3.3l1.3 6.3c.9 4.2 2.1 6.3 3.6 6.3 1.5 0 3.5-2.2 6-6.6 1.6-2.8 2.3-4.8 2.1-6-.3-1.7-1.8-2.1-4.5-1.2 1.6-2.5 3.7-3.8 6.3-3.8 2.1-.1 3.2 1.4 3.3 4.4z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0c0c0c] relative">
+    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+    <div class="container mx-auto px-6 py-8 text-center">
+      <p class="text-text-aux text-sm">© 2026 Michi LLC</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // 1. Inject Perforations
+    document.querySelectorAll('.perforation-container').forEach(container => {
+      container.innerHTML = Array(8).fill('<svg width="12" height="20" viewBox="0 0 12 20" class="fill-current text-text-aux"><rect x="0" y="0" width="12" height="20" rx="3" /></svg>').join('');
+    });
+
+    // 2. Intersection Observer for FadeIn
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+
+    // 3. Navbar Scroll & Mobile Menu
+    const navbar = document.getElementById('navbar');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-bg-main/90', 'backdrop-blur-md', 'py-4');
+        navbar.classList.remove('bg-transparent', 'py-6');
+      } else {
+        navbar.classList.add('bg-transparent', 'py-6');
+        navbar.classList.remove('bg-bg-main/90', 'backdrop-blur-md', 'py-4');
+      }
+    });
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // 4. Works Horizontal Scroll (Drag)
+    const slider = document.getElementById('works-slider');
+    if (slider) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('cursor-grabbing');
+        slider.classList.remove('cursor-grab');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('cursor-grabbing');
+        slider.classList.add('cursor-grab');
+      });
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('cursor-grabbing');
+        slider.classList.add('cursor-grab');
+      });
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // 5. Hero Particles Animation
+    const svg = document.getElementById('hero-particles');
+    if (svg) {
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+      const particles = Array.from({ length: 25 }).map(() => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        r: Math.random() * 1.5 + 1,
+        color: Math.random() > 0.5 ? '#c9a84c' : '#c9973a',
+        opacity: Math.random() * 0.2 + 0.3,
+      }));
+
+      const circles = particles.map(p => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('r', p.r.toString());
+        circle.setAttribute('fill', p.color);
+        circle.setAttribute('opacity', p.opacity.toString());
+        svg.appendChild(circle);
+        return circle;
+      });
+
+      const linesGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      svg.insertBefore(linesGroup, svg.firstChild);
+      
+      let mouseX = -1000;
+      let mouseY = -1000;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      window.addEventListener('mouseleave', () => {
+        mouseX = -1000;
+        mouseY = -1000;
+      });
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      });
+
+      function animate() {
+        linesGroup.innerHTML = '';
+        
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          const dxMouse = mouseX - p.x;
+          const dyMouse = mouseY - p.y;
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+          if (distMouse < 200) {
+            p.x += dxMouse * 0.015;
+            p.y += dyMouse * 0.015;
+          }
+
+          circles[i].setAttribute('cx', p.x.toString());
+          circles[i].setAttribute('cy', p.y.toString());
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 150) {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', p.x.toString());
+              line.setAttribute('y1', p.y.toString());
+              line.setAttribute('x2', p2.x.toString());
+              line.setAttribute('y2', p2.y.toString());
+              line.setAttribute('stroke', '#c9a84c');
+              line.setAttribute('stroke-width', '0.5');
+              line.setAttribute('opacity', (0.12 * (1 - dist / 150)).toString());
+              linesGroup.appendChild(line);
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  </script>
+</body>
+</html>
